@@ -1,0 +1,24 @@
+@page
+@model QuizApp.Pages.Quiz.IndexModel
+@{
+ViewData["Title"] = "Take Quiz";
+}
+
+<h1>Take Quiz</h1>
+
+<form method="post">
+    @foreach (var question in Model.Questions)
+    {
+    <div>
+        <h3>@question.Text</h3>
+        @foreach (var answer in question.Answers)
+        {
+        <div>
+            <input type="radio" id="answer_@answer.Id" name="answers_@question.Id" value="@answer.Id" />
+            <label for="answer_@answer.Id">@answer.Text</label>
+        </div>
+        }
+    </div>
+    }
+    <button type="submit" class="btn btn-primary">Submit Quiz</button>
+</form>

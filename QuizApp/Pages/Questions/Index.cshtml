@@ -1,0 +1,33 @@
+@page
+@model QuizApp.Pages.Questions.IndexModel
+@{
+ViewData["Title"] = "Questions";
+}
+
+<h1>Questions</h1>
+
+<p>
+    <a class="btn btn-outline-primary" asp-page="/Questions/Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Question</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var question in Model.Questions)
+    {
+        <tr>
+            <td>@question.Text</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@question.Id" class="btn btn-outline-primary">Edit</a> 
+                <a asp-page="Details" asp-route-id="@question.Id" class="btn btn-outline-info">Details</a>
+                <a asp-page="Delete" asp-route-id="@question.Id" class="btn btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

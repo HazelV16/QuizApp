@@ -1,0 +1,17 @@
+@page
+@model QuizApp.Pages.Questions.DetailsModel
+
+@{
+    ViewData["Title"] = "Question Details";
+}
+
+<h1>Question Details</h1>
+
+<h3>@Model.Question.Text</h3>
+@foreach (var t in Model.Question.Answers)
+{
+    <div>
+        <p type="text" asp-for="Question.Answers[i].Text">@t.Text</p>
+    </div>
+}
+<a asp-page="./Index" class="btn btn-secondary">Back To List</a>

@@ -1,0 +1,14 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Create, Edit, and Take Quizzes.</p>
+    <p>
+        <a class="btn btn-outline-primary" asp-page="/Questions/Index">Manage Questions</a>
+        <a class="btn btn-outline-primary" asp-page="/Quiz/Index">Take a Quiz</a>
+    </p>
+</div>

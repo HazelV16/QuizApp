@@ -1,0 +1,10 @@
+@page
+@model QuizApp.Pages.Quiz.ResultModel
+
+@{
+    ViewData["Title"] = "Quiz Result";
+}
+
+<h1>Quiz Result</h1>
+<p>Your Score: @Model.Score / @Model.Total</p>
+<a asp-page="/Index">Return to Home</a>
