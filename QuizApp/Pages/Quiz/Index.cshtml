@@ -6,19 +6,48 @@ ViewData["Title"] = "Take Quiz";
 
 <h1>Take Quiz</h1>
 
-<form method="post">
+<div id="timer">Time Left: <span id="countdown"></span></div>
+
+<form id="quizForm" method="post">
     @foreach (var question in Model.Questions)
     {
-    <div>
-        <h3>@question.Text</h3>
-        @foreach (var answer in question.Answers)
-        {
         <div>
-            <input type="radio" id="answer_@answer.Id" name="answers_@question.Id" value="@answer.Id" />
-            <label for="answer_@answer.Id">@answer.Text</label>
+            <h3>@question.Text</h3>
+            @foreach (var answer in question.Answers)
+            {
+                <div>
+                    <input type="checkbox" id="answer_@answer.Id" name="answers_@question.Id" value="@answer.Id" />
+                    <label for="answer_@answer.Id">@answer.Text</label>
+                </div>
+            }
         </div>
-        }
-    </div>
     }
     <button type="submit" class="btn btn-primary">Submit Quiz</button>
 </form>
+
+@section Scripts {
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    document.getElementById("quizForm").submit(); // Auto-submit form on timeout
+                }
+            }, 1000);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let oneMinutes = 60; // Adjust timer duration here (5 minutes in seconds)
+            let display = document.getElementById("countdown");
+            startTimer(oneMinutes, display);
+        });
+    </script>
+}

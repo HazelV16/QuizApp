@@ -21,6 +21,7 @@
                 <input type="hidden" asp-for="Question.Answers[i].QuestionId"/>
                 <input type="text" asp-for="Question.Answers[i].Text" class="form-control"/>
                 <input type="checkbox" asp-for="Question.Answers[i].IsCorrect"/> Correct
+                @* <input type="radio" name="IsCorrect" value="@i" @(Model.Question.Answers[i].IsCorrect ? "checked" : "") /> Correct *@
                 <span asp-validation-for="Question.Answers[i].Text" class="text-danger"></span>
             </div>
         }

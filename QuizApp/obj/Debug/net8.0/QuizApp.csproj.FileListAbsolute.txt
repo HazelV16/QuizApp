@@ -125,3 +125,4 @@
 /Users/trucvuong2001/Desktop/JRM/QuizApp/QuizApp/obj/Debug/net8.0/QuizApp.pdb
 /Users/trucvuong2001/Desktop/JRM/QuizApp/QuizApp/obj/Debug/net8.0/QuizApp.genruntimeconfig.cache
 /Users/trucvuong2001/Desktop/JRM/QuizApp/QuizApp/obj/Debug/net8.0/ref/QuizApp.dll
+/Users/trucvuong2001/Desktop/JRM/QuizApp/QuizApp/obj/Debug/net8.0/QuizApp.sourcelink.json

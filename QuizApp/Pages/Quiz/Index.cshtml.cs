@@ -11,6 +11,7 @@ namespace QuizApp.Pages.Quiz;
 
     public class IndexModel : PageModel
     {
+        // private int questionNum = 5;
         private readonly QuizContext _context;
 
         public IndexModel(QuizContext context)
@@ -55,5 +56,6 @@ namespace QuizApp.Pages.Quiz;
             }
 
             return RedirectToPage("Result", new { score = score, total = Questions.Count });
+            // return RedirectToPage("Result", new { score = score, total = questionNum });
         }
     }
